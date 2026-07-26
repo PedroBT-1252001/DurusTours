@@ -1,0 +1,162 @@
+# ============================================================
+# Build output and generated files
+# ============================================================
+target/
+out/
+build/
+bin/
+generated/
+*.class
+*.log
+hs_err_pid*
+replay_pid*
+
+# Maven
+.m2/
+.flattened-pom.xml
+dependency-reduced-pom.xml
+pom.xml.asc
+pom.xml.next
+pom.xml.releaseBackup
+pom.xml.tag
+pom.xml.versionsBackup
+release.properties
+
+# ============================================================
+# Local configuration, environment variables and secrets
+# ============================================================
+.env
+.env.*
+!.env.example
+*.local
+application-local.properties
+application-local.yml
+application-local.yaml
+application-*.local.properties
+application-*.local.yml
+application-*.local.yaml
+
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
+*.key
+
+# ============================================================
+# Local databases and runtime data
+# ============================================================
+*.db
+*.db-shm
+*.db-wal
+*.h2.db
+*.mv.db
+*.trace.db
+*.lock.db
+
+# ============================================================
+# Claude Code
+# ============================================================
+.claude/
+
+# ============================================================
+# IntelliJ IDEA
+# ============================================================
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# ============================================================
+# Eclipse / Spring Tool Suite
+# ============================================================
+.classpath
+.project
+.settings/
+.factorypath
+.apt_generated/
+.springBeans
+.sts4-cache/
+
+# ============================================================
+# Visual Studio Code
+# ============================================================
+.vscode/
+
+# ============================================================
+# NetBeans
+# ============================================================
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# ============================================================
+# macOS
+# ============================================================
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# ============================================================
+# Windows
+# ============================================================
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.stackdump
+
+# Windows shortcuts
+*.lnk
+
+# ============================================================
+# Linux and common editors
+# ============================================================
+*~
+.directory
+.Trash-*
+*.swp
+*.swo
+*.swn
+*.tmp
+*.temp
+*.bak
+*.orig
+
+# ============================================================
+# Test reports, coverage and tooling caches
+# ============================================================
+.cache/
+.scannerwork/
+.sonar/
+.jacoco/
+jacoco.exec
+coverage/
+test-results/
+
+# ============================================================
+# Local containers and process files
+# ============================================================
+docker-compose.override.yml
+compose.override.yml
+*.pid
+*.pid.lock
+
+# ============================================================
+# JVM diagnostics (project-specific additions)
+# ============================================================
+*.hprof
+*.dump
+.attach_pid*
