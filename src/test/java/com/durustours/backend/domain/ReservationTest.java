@@ -41,21 +41,22 @@ class ReservationTest {
 
     private Tour aBridgesTour() {
         return Tour.builder()
-                .category(TourCategory.BRIDGES_TOUR)
-                .name("6 Bridges Cruise")
+                .category(TourCategory.FIFTY_MIN_CRUISE)
+                .title("6 Bridges Cruise")
                 .durationMinutes(50)
-                .priceAdult(new BigDecimal("15.00"))
-                .priceChild(new BigDecimal("7.50"))
+                .durationLabel("50 minutes")
+                .basePrice(new BigDecimal("15.00"))
                 .build();
     }
 
     private Tour aBurmesterComboTour() {
         return Tour.builder()
-                .category(TourCategory.BURMESTER_COMBO)
-                .name("Cruise + Burmester Cellar")
+                .category(TourCategory.FIFTY_MIN_CRUISE)
+                .title("Cruise + Burmester Cellar")
                 .durationMinutes(50)
-                .priceAdult(new BigDecimal("25.00"))
-                .priceChild(new BigDecimal("12.50"))
+                .durationLabel("50 minutes")
+                .basePrice(new BigDecimal("25.00"))
+                .combo(true)
                 .build();
     }
 

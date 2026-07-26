@@ -11,6 +11,13 @@ spring:
       ddl-auto: update
     open-in-view: false
     show-sql: false
+    # Hibernate creates the schema before data.sql runs, instead of the default
+    # order where data.sql would run first and fail against nonexistent tables.
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
+      encoding: UTF-8
   h2:
     console:
       enabled: true

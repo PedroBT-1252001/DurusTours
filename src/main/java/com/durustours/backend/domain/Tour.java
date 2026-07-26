@@ -1,9 +1,8 @@
 package com.durustours.backend.domain;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -34,37 +33,40 @@ public class Tour {
     private Long id;
 
     @NotNull(message = "Tour category is required")
-    @Enumerated(EnumType.STRING)
+    @Convert(converter = TourCategoryConverter.class)
     @Column(nullable = false)
     private TourCategory category;
 
-    @NotBlank(message = "Tour name is required")
+    @NotBlank(message = "Tour title is required")
     @Column(nullable = false)
-    private String name;
+    private String title;
 
     @Column
     private String description;
 
-    @NotNull(message = "Duration is required")
-    @Positive(message = "Duration must be positive")
-    @Column(nullable = false)
+    /** Exact minutes when known (e.g. 50 for river cruises); null for full-day tours. */
+    @Positive(message = "Duration must be positive when specified")
+    @Column
     private Integer durationMinutes;
 
-    @NotNull(message = "Adult price is required")
-    @DecimalMin(value = "0.0", inclusive = true, message = "Adult price cannot be negative")
+    @NotBlank(message = "Duration label is required")
     @Column(nullable = false)
-    private BigDecimal priceAdult;
+    private String durationLabel;
 
-    @NotNull(message = "Child price is required")
-    @DecimalMin(value = "0.0", inclusive = true, message = "Child price cannot be negative")
+    @NotNull(message = "Base price is required")
+    @DecimalMin(value = "0.0", inclusive = true, message = "Base price cannot be negative")
     @Column(nullable = false)
-    private BigDecimal priceChild;
+    private BigDecimal basePrice;
+
+    @Builder.Default
+    @Column(nullable = false)
+    private boolean combo = false;
 
     @Builder.Default
     @Column(nullable = false)
     private boolean active = true;
 
     public boolean requiresComboActivation() {
-        return category != null && category.requiresComboActivation();
+        return combo;
     }
 }
